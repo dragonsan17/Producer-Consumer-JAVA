@@ -11,7 +11,6 @@ Buyer
 	The buyer class locks the lock before buying and releases in the "finally" block after the 'buy' function runs. The await() call
 	automatically transfers the control of this lock to other threads whose signals may contribute to the reinitiating of this current
 	thread. After the control returns, the lock is ensured to transfer to the current buyer thread till the end of the buy process.
-
 	The Buyer class is implemented in a way such that it first waits for empty signal. If the Catalog is not empty, a seller
 	thread will send this signal and the buyer thread will execute further. It will dequeue the front element of the catalog
 	(the front element is always the one with the highest priority in the catalog in the way I have implemented). It will also 
@@ -24,7 +23,6 @@ Seller
 	The seller class locks the lock before selling and releases in the "finally" block after the 'sell' function runs. The await() call
 	automatically transfers the control of this lock to other threads whose signals may contribute to the reinitiating of this current
 	thread. After the control returns, the lock is ensured to transfer to the current seller thread till the end of the sell process.
-
 	The seller class is implemented in a way such that it waits for the full signal. If the Catalog is not full, this signal comes
 	from buyer threads as they buy and then send this signal that the catalog isn't full. Also, there is an If function which will
 	check whether the inventory is empty or not. If empty, it means that the inventory has been emptied and that this thread cannot
