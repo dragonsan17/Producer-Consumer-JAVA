@@ -8,6 +8,7 @@ Item and Node
 	Are same as we have been given. The functions to be completed were completed accordingly.
 
 Buyer
+
 	The buyer class locks the lock before buying and releases in the "finally" block after the 'buy' function runs. The await() call
 	automatically transfers the control of this lock to other threads whose signals may contribute to the reinitiating of this current
 	thread. After the control returns, the lock is ensured to transfer to the current buyer thread till the end of the buy process.
